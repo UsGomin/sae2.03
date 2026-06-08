@@ -1,0 +1,38 @@
+:root{
+    --bg-color-1: #f2e9e4;
+    --bg-color-2: #9a8c98;
+    --bg-color-3: #22223b;
+}
+
+body{
+    background-color: var(--bg-color-1);
+    margin: 10px;
+}
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.button-login{
+    width: 150px;
+    height: 50px;
+    background-color: var(--bg-color-2);
+    color: var(--bg-color-1);
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: -4px 4px var(--bg-color-3);
+    transition: transform 0.08s ease box-shadow;
+}
+
+.button-login:hover{
+    transform: translate(-2px, 2px);
+    box-shadow: -2px 2px var(--bg-color-3);
+}
