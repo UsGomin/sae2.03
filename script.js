@@ -4,6 +4,7 @@ const LoginModal = document.getElementById('login-modal');
 const LoginContent = document.getElementById('login-content');
 const FenConnexion = document.querySelector('.connexion');
 const FenCreer = document.querySelector('.creercompte');
+const BoutonClose = document.getElementById('button-close');
 
 
 BoutonConnexion.addEventListener("click", ()=>{
@@ -22,7 +23,7 @@ BoutonCreer.addEventListener("click", ()=>{
 });
 
 LoginModal.addEventListener("click", (e)=>{
-    if(e.target === LoginModal){
+    if(e.target === BoutonClose){
         LoginModal.close();
     }
 });
