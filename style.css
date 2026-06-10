@@ -17,6 +17,10 @@ header{
     justify-content: space-between;
 }
 
+.connexion, .creercompte{
+    display: none;
+}
+
 .login-wrapper{
     display: flex;
     align-items: center;
@@ -39,11 +43,8 @@ header{
     transform: translate(-2px, 2px);
     box-shadow: -2px 2px var(--bg-color-3);
 }
-
-dialog{
-    border: none;
-    padding: 0;
-    box-shadow: 3px 3px var(--color-4);
+#login-modal{
+    margin-left: 35%;
 }
 
 form{
@@ -64,7 +65,7 @@ form{
 
 .creercompte-content{
     width: 300px;
-    height: 450px;
+    height: 475px;
 }
 
 .title{

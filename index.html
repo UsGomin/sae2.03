@@ -13,17 +13,16 @@
             <button id="button-connexion">Se connecter</button>
             <button id="button-creer">Creer un compte</button>
         </div>
-        <div class="connexion" hidden>
+        <div class="connexion">
             <form class="connexion-content">
                 <button id="button-close">X</button>
                 <div class="title">Welcome,<br><span>sign in to continue</span></div>
                 <input type="email" placeholder="Email">
                 <input type="password" placeholder="Password">
-                <br>
                 <button>Se connecter</button>
             </form>
         </div>
-        <div class="creercompte" hidden>
+        <div class="creercompte">
             <form class="creercompte-content">
                 <button id="button-close">X</button>
                 <div class="title">Welcome,<br><span>sign up to start</span></div>
@@ -34,14 +33,11 @@
                 <button>Créer son compte</button>
             </form>
         </div>
-        <dialog id="login-modal">
-            <div id="login-content">
-            </div>
-        </dialog>
     </header>
-    <main>
-
-    </main>
-    <script src="script.js"></script>
+    <div id="login-modal">
+	    <div id="login-content">
+	    </div>
+    </div>
+    <script src="script.js" defer></script>
 </body>
 </html>
