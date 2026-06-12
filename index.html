@@ -38,6 +38,26 @@
 	    <div id="login-content">
 	    </div>
     </div>
+	<main>
+		<?php
+			$servername='localhost';
+			$user='admin';
+			$password='qwerty';
+			$database='sae';
+
+			$link=mysqli_connect($servername,$user,$password,$database);
+			if(!$link){
+				die("Erreur:".mysqli_connect_error());
+			}
+			$res=mysqli_query($link,"SELECT * FROM utilisateur");
+			while($row=mysqli_fetch_assoc($res)){
+				echo $row['email']." ".
+					 $row['nom']." ".
+					 $row['prenom']." ".
+					 $row['password']."<br/>";
+			}
+		?>
+	</main>
     <script src="script.js" defer></script>
 </body>
 </html>
