@@ -11,3 +11,9 @@ Une fois le fichier mis il faut faire la commande 'a2ensite' pour activer le sit
 les fichiers html/css/js sont a mettre dans un dossier nommé précisement 'sae203',
 ce dossier est a mettre dans le dossier: /var/www/
 ```
+
+##### fic index
+```
+il y'a 4 variables dans la balise php pour se connecter a la database.
+> Elle sont a changer en fonction des valeurs que vous devez mettre pour que ca fonctione
+```
