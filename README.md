@@ -17,3 +17,8 @@ ce dossier est a mettre dans le dossier: /var/www/
 il y'a 4 variables dans la balise php pour se connecter a la database.
 > Elle sont a changer en fonction des valeurs que vous devez mettre pour que ca fonctione
 ```
+##### fic sql
+```
+Pour le script sql il faut deja voir creer la database sae.
+Pour utiliser le script il faut faire: mysql -u 'utilisateur' -p 'password' sae < script.sql
+```
