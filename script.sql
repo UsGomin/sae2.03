@@ -5,3 +5,5 @@ CREATE TABLE utilisateur(
     prenom VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL
 );
+
+ALTER TABLE utilisateur ADD CONSTRAINT unique_email UNIQUE (email);
