@@ -27,4 +27,26 @@ LoginModal.addEventListener("click", (e)=>{
     }
 });
 
+document.addEventListener("submit", (e) => {
+    // On vérifie si l'élément qui est soumis est bien notre formulaire (via son ID ou sa classe)
+    if (e.target && e.target.id === 'form-creer') { 
+        e.preventDefault(); // Empêche le rechargement de la page
 
+        const FormulaireActif = e.target; // C'est le formulaire précis qui vient d'être soumis
+        const Data = new FormData(FormulaireActif);
+
+        fetch("insert_base.php", {
+            method: "POST",
+            body: Data
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log("Retour du serveur PHP :", data);
+            
+            // Si le script PHP renvoie "Succès" (ou si vous voulez juste fermer après l'envoi) :
+            // LoginModal.style.display = "none";
+            // window.location.reload(); // Pour rafraîchir l'index et voir les changements
+        })
+        .catch(error => console.error("Erreur Fetch :", error));
+    }
+});

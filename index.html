@@ -15,7 +15,7 @@
         </div>
         <div class="connexion">
             <form class="connexion-content">
-                <button id="button-close">X</button>
+                <button id="button-close" type="button">X</button>
                 <div class="title">Welcome,<br><span>sign in to continue</span></div>
                 <input type="email" placeholder="Email">
                 <input type="password" placeholder="Password">
@@ -23,14 +23,14 @@
             </form>
         </div>
         <div class="creercompte">
-            <form class="creercompte-content">
-                <button id="button-close">X</button>
+            <form class="creercompte-content" action="insert_base.php" method="POST" id="form-creer">
+                <button id="button-close" type="button">X</button>
                 <div class="title">Welcome,<br><span>sign up to start</span></div>
-                <input type="text" placeholder="Nom">
-                <input type="text" placeholder="Prénom">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Créer son compte</button>
+                <input type="text" placeholder="Nom" name="nom">
+                <input type="text" placeholder="Prénom" name="prenom">
+                <input type="email" placeholder="Email" name="email">
+                <input type="password" placeholder="Password" name="password">
+                <button type="submit">Créer son compte</button>
             </form>
         </div>
     </header>
@@ -39,7 +39,7 @@
 	    </div>
     </div>
 	<main>
-		<?php
+        <?php
 			$servername='localhost';
 			$user='admin';
 			$password='qwerty';
@@ -56,6 +56,7 @@
 					 $row['prenom']." ".
 					 $row['password']."<br/>";
 			}
+            mysqli_close($link);
 		?>
 	</main>
     <script src="script.js" defer></script>
