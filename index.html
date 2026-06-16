@@ -9,57 +9,30 @@
 <body>
     <header>
         <h1>SAE 2.03</h1>
-        <div class="login-wrapper">
-            <button id="button-connexion">Se connecter</button>
-            <button id="button-creer">Creer un compte</button>
-        </div>
-        <div class="connexion">
+    </header>
+	<main>
+        <h1>Bienvenu sur notre site pour notre projet de SAE 2.03</h1>
+        <div id="connexion">
             <form class="connexion-content">
-                <button id="button-close" type="button">X</button>
                 <div class="title">Welcome,<br><span>sign in to continue</span></div>
                 <input type="email" placeholder="Email">
                 <input type="password" placeholder="Password">
-                <button>Se connecter</button>
+                <button class="button-no-compte" type="button">tu n'a pas de compte ? creer en un</button>
+                <button type="submit">Se connecter</button>
             </form>
         </div>
-        <div class="creercompte">
-            <form class="creercompte-content" action="insert_base.php" method="POST" id="form-creer">
-                <button id="button-close" type="button">X</button>
+        <div id="creercompte">
+            <form class="creercompte-content" action="insert_base.php" method="post" id="form-creer">
                 <div class="title">Welcome,<br><span>sign up to start</span></div>
                 <input type="text" placeholder="Nom" name="nom">
                 <input type="text" placeholder="Prénom" name="prenom">
                 <input type="email" placeholder="Email" name="email">
-				<input type="text" placeholder="Login" name="login">
                 <input type="password" placeholder="Password" name="password">
+                <button class="button-deja-compte" type="button">tu a deja un compte ? Connecte toi</button>
                 <button type="submit">Créer son compte</button>
             </form>
         </div>
-    </header>
-    <div id="login-modal">
-	    <div id="login-content">
-	    </div>
-    </div>
-	<main>
-        <?php
-			$servername='localhost';
-			$user='admin';
-			$password='qwerty';
-			$database='sae';
-
-			$link=mysqli_connect($servername,$user,$password,$database);
-			if(!$link){
-				die("Erreur:".mysqli_connect_error());
-			}
-			$res=mysqli_query($link,"SELECT * FROM utilisateur");
-			while($row=mysqli_fetch_assoc($res)){
-				echo $row['email']." ".
-					 $row['nom']." ".
-					 $row['prenom']." ".
-					 $row['password']."<br/>";
-			}
-            mysqli_close($link);
-		?>
 	</main>
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>
