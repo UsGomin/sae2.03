@@ -41,7 +41,7 @@ document.addEventListener("submit", (e) => {
         })
         .then(response => response.text())
         .then(data => {
-            console.log("Retour du serveur PHP :", data);
+            .then(data => { LoginContent.innerHTML = data; })  // affiche la réponse (le lien)
             
             // Si le script PHP renvoie "Succès" (ou si vous voulez juste fermer après l'envoi) :
             // LoginModal.style.display = "none";
