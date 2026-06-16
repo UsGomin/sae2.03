@@ -1,31 +1,34 @@
 <?php
-$servername='localhost';
-$user='root';
-$sqlpsswd='lannion';
-$database='sae';
+$link = mysqli_connect('localhost', 'root', 'lannion', 'sae');
+if (!$link) { die("Erreur:" . mysqli_connect_error()); }
 
-$link=mysqli_connect($servername,$user,$sqlpsswd,$database);
-if(!$link){
-	die("Erreur:".mysqli_connect_error());
+$login    = $_POST['login']    ?? "";
+$email    = $_POST['email']    ?? "";
+$nom      = $_POST['nom']      ?? "";
+$prenom   = $_POST['prenom']   ?? "";
+$password = $_POST['password'] ?? "";
+
+if ($login === "" || $email === "" || $password === "") {
+    die("Veuillez remplir tous les champs.");
 }
 
+$hash  = password_hash($password, PASSWORD_DEFAULT);
+$token = bin2hex(random_bytes(32));
 
-if(isset($_POST['login']) AND isset($_POST['email']) AND  isset($_POST['nom']) AND isset($_POST['prenom']) AND isset($_POST['password'])){
+$stmt = mysqli_prepare($link,
+    "INSERT INTO utilisateur (login, email, nom, prenom, password, valide, token)
+     VALUES (?, ?, ?, ?, ?, 0, ?)");
+mysqli_stmt_bind_param($stmt, 'ssssss', $login, $email, $nom, $prenom, $hash, $token);
 
-	$stmt = mysqli_prepare($link, "INSERT INTO utilisateur (login, email, nom, prenom, password) VALUES (?, ?, ?, ?, ?)");
-
-	if ($stmt) {
-    	mysqli_stmt_bind_param($stmt, 'sssss',$_POST['login'] ,$_POST['email'], $_POST['nom'], $_POST['prenom'], $_POST['password']);
-    
-    	if (mysqli_stmt_execute($stmt)) {
-        	header('Location: acceuil.html');
-        	exit();
-    	}
-    	mysqli_stmt_close($stmt);
-	}
-
+if (mysqli_stmt_execute($stmt)) {
+    $lien = "http://" . $_SERVER['HTTP_HOST'] . "/valider.php?token=" . $token;
+    echo "Compte créé. Cliquez sur ce lien pour valider votre compte :<br>
+          <a href=\"$lien\">$lien</a>";
+} elseif (mysqli_errno($link) === 1062) {
+    echo "Erreur : ce login ou cet email existe déjà.";
+} else {
+    echo "Erreur : " . mysqli_stmt_error($stmt);
 }
-
+mysqli_stmt_close($stmt);
 mysqli_close($link);
-
-?>   
+?>
