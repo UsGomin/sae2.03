@@ -1,6 +1,5 @@
 <?php
-$link = mysqli_connect('localhost', 'root', 'lannion', 'sae');
-if (!$link) { die("Erreur:" . mysqli_connect_error()); }
+require 'variable_connexion.php';
 
 $login    = $_POST['login']    ?? "";
 $email    = $_POST['email']    ?? "";

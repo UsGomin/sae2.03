@@ -5,8 +5,8 @@ if (!isset($_SESSION['id_utilisateur'])) {
     exit();
 }
 
-$link = mysqli_connect('localhost', 'admin', 'qwerty', 'sae');
-if (!$link) { die("Erreur:" . mysqli_connect_error()); }
+require 'variable_connexion.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">

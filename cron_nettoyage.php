@@ -7,10 +7,7 @@
  *   0 3 * * * php /var/www/sae203/cron_nettoyage.php >> /var/log/cron_sae.log 2>&1
  */
 
-$link = mysqli_connect('localhost', 'root', 'lannion', 'sae');
-if (!$link) {
-    die("[ERREUR] Connexion BDD impossible : " . mysqli_connect_error() . "\n");
-}
+require 'variable_connexion.php';
 
 $stmt = mysqli_prepare($link,
     "DELETE FROM utilisateur WHERE valide = 0 AND token IS NOT NULL");

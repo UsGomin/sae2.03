@@ -1,11 +1,9 @@
 <?php
-$link = mysqli_connect('localhost', 'admin', 'qwerty', 'sae');
-if (!$link) { die("Erreur:" . mysqli_connect_error()); }
+require 'variable_connexion.php';
 
 $token = $_GET['token'] ?? "";
 
-$stmt = mysqli_prepare($link,
-    "UPDATE utilisateur SET valide = 1, token = NULL WHERE token = ? AND valide = 0");
+$stmt = mysqli_prepare($link, "UPDATE utilisateur SET valide = 1, token = NULL WHERE token = ? AND valide = 0");
 mysqli_stmt_bind_param($stmt, 's', $token);
 mysqli_stmt_execute($stmt);
 
