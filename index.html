@@ -14,13 +14,13 @@
             <button id="button-creer">Creer un compte</button>
         </div>
         <div class="connexion">
-            <form class="connexion-content">
-                <button id="button-close" type="button">X</button>
-                <div class="title">Welcome,<br><span>sign in to continue</span></div>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Se connecter</button>
-            </form>
+            <form class="connexion-content" action="connexion.php" method="POST">
+				<button id="button-close" type="button">X</button>
+				<div class="title">Welcome,<br><span>sign in to continue</span></div>
+				<input type="text" placeholder="Login" name="login">
+				<input type="password" placeholder="Password" name="password">
+				<button>Se connecter</button>
+			</form>
         </div>
         <div class="creercompte">
             <form class="creercompte-content" action="insert_base.php" method="POST" id="form-creer">
