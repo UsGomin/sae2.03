@@ -10,12 +10,12 @@ if(!$link){
 }
 
 
-if(isset($_POST['email']) AND isset($_POST['nom']) AND isset($_POST['prenom']) AND isset($_POST['password'])){
+if(isset($_POST['login']) AND isset($_POST['email']) AND  isset($_POST['nom']) AND isset($_POST['prenom']) AND isset($_POST['password'])){
 
-	$stmt = mysqli_prepare($link, "INSERT INTO utilisateur (email, nom, prenom, password) VALUES (?, ?, ?, ?)");
+	$stmt = mysqli_prepare($link, "INSERT INTO utilisateur (login, email, nom, prenom, password) VALUES (?, ?, ?, ?, ?)");
 
 	if ($stmt) {
-    	mysqli_stmt_bind_param($stmt, 'ssss', $_POST['email'], $_POST['nom'], $_POST['prenom'], $_POST['password']);
+    	mysqli_stmt_bind_param($stmt, 'sssss',$_POST['login'] ,$_POST['email'], $_POST['nom'], $_POST['prenom'], $_POST['password']);
     
     	if (mysqli_stmt_execute($stmt)) {
         	header('Location: acceuil.html');

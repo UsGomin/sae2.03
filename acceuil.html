@@ -10,7 +10,8 @@
 			}
 			$res=mysqli_query($link,"SELECT * FROM utilisateur");
 			while($row=mysqli_fetch_assoc($res)){
-				echo $row['email']." ".
+				echo $row['login']." ". 
+				 	 $row['email']." ".
 					 $row['nom']." ".
 					 $row['prenom']." ".
 					 $row['password']."<br/>";
