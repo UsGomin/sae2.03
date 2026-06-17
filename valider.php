@@ -9,6 +9,8 @@ mysqli_stmt_execute($stmt);
 
 if (mysqli_stmt_affected_rows($stmt) === 1) {
     echo "Compte validé ! Vous pouvez maintenant vous connecter.";
+    header('Location: acceuil.php');
+    exit();
 } else {
     echo "Lien invalide ou compte déjà validé.";
 }

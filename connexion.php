@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-$link = mysqli_connect('localhost', 'admin', 'qwerty', 'sae');
+require('variable_connexion.php');
+
 if (!$link) { die("Erreur:" . mysqli_connect_error()); }
 
 $login    = $_POST['login']    ?? "";
@@ -19,7 +20,7 @@ if ($user && password_verify($password, $user['password'])) {
     } else {
         $_SESSION['id_utilisateur'] = $user['id_utilisateur'];  // on ouvre la session
         $_SESSION['login'] = $login;
-        header('Location: prive.php');
+        header('Location: acceuil.php');
         exit();
     }
 } else {
